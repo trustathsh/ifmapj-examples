@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns:network administrative-domain="" address="192.168.1.1" type="IPv4" netmask="255.255.255.0" xmlns:ns="http://www.example.com/extended-identifiers" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.com/extended-identifiers example-identifiers-2.1v1.xsd"/>
