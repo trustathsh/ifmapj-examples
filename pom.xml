@@ -8,18 +8,18 @@
 	</properties>
 
 	<!-- general project information -->
-	<groupId>de.fhhannover.inform.trust</groupId>
+	<groupId>de.hshannover.f4.trust</groupId>
 	<artifactId>ifmapj-examples</artifactId>
-	<version>0.1.5</version>
+	<version>1.0.0</version>
 	<packaging>jar</packaging>
 	<name>ifmapj-examples</name>
-	<url>http://trust.inform.fh-hannover.de</url>
+	<url>http://trust.f4.hs-hannover.de</url>
 	<description>
 		ifmapj-examples is a simple helper project to demonstrate the usage of the ifmapj library for Java.
 	</description>
 	<organization>
-		<name>Trust@FHH</name>
-		<url>http://trust.inform.fh-hannover.de</url>
+		<name>Trust@HsH</name>
+		<url>http://trust.f4.hs-hannover.de</url>
 	</organization>
 
 	<!-- the project license -->
@@ -34,22 +34,23 @@
 
 	<!-- the core developers of the project -->
 	<developers>
-		<developer>
-			<id>aw</id>
+    	<developer>
+    		<name>Trust@HsH</name>
+			<email>trust@f4-i.fh-hannover.de</email>
+        </developer>
+    </developers>
+	
+	<contributors>
+		<contributor>
 			<name>Arne Welzel</name>
-			<email>arne.welzel@googlemail.com</email>
-		</developer>
-		<developer>
-			<id>ib</id>
+		</contributor>
+		<contributor>
 			<name>Ingo Bente</name>
-			<email>ingo.bente@fh-hannover.de</email>
-		</developer>
-		<developer>
-			<id>jk</id>
+		</contributor>
+		<contributor>
 			<name>Joram Knaack</name>
-			<email>joram.knaack@lonet.org</email>
-		</developer>
-	</developers>
+		</contributor>
+	</contributors>
 
 	<build>
 		<plugins>
@@ -69,7 +70,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>de.fhhannover.inform.trust.ifmapj_examples.IfmapJExamples</mainClass>
+							<mainClass>de.hshannover.f4.trust.ifmapj_examples.IfmapJExamples</mainClass>
 							<addClasspath>true</addClasspath>
 						</manifest>
 					</archive>
@@ -96,21 +97,13 @@
 				<configuration>
 					<licenseName>apache_v2</licenseName>
 					<canUpdateDescription>true</canUpdateDescription>
+					<addJavaLicenseAfterPackage>false</addJavaLicenseAfterPackage>
 					<descriptionTemplate>${basedir}/src/license/description_template.ftl</descriptionTemplate>
 					<roots>
 						<root>src/main/java</root>
 						<root>src/test/java</root>
 					</roots>
 				</configuration>
-				<executions>
-					<execution>
-						<id>first</id>
-						<goals>
-							<goal>update-file-header</goal>
-						</goals>
-						<phase>process-sources</phase>
-					</execution>
-				</executions>
 			</plugin>
 
 		</plugins>
@@ -118,9 +111,9 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>de.fhhannover.inform.trust</groupId>
+			<groupId>de.hshannover.f4.trust</groupId>
 			<artifactId>ifmapj</artifactId>
-			<version>0.1.5</version>
+			<version>1.0.0</version>
 		</dependency>
 	</dependencies>
 </project>

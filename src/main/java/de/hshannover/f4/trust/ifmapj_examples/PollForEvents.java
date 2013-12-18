@@ -1,29 +1,27 @@
-package de.fhhannover.inform.trust.ifmapj_examples;
-
 /*
  * #%L
- * ====================================================
- *   _____                _     ____  _____ _   _ _   _
- *  |_   _|_ __ _   _ ___| |_  / __ \|  ___| | | | | | |
- *    | | | '__| | | / __| __|/ / _` | |_  | |_| | |_| |
- *    | | | |  | |_| \__ \ |_| | (_| |  _| |  _  |  _  |
- *    |_| |_|   \__,_|___/\__|\ \__,_|_|   |_| |_|_| |_|
+ * =====================================================
+ *   _____                _     ____  _   _       _   _
+ *  |_   _|_ __ _   _ ___| |_  / __ \| | | | ___ | | | |
+ *    | | | '__| | | / __| __|/ / _` | |_| |/ __|| |_| |
+ *    | | | |  | |_| \__ \ |_| | (_| |  _  |\__ \|  _  |
+ *    |_| |_|   \__,_|___/\__|\ \__,_|_| |_||___/|_| |_|
  *                             \____/
  * 
  * =====================================================
  * 
- * Fachhochschule Hannover 
+ * Hochschule Hannover 
  * (University of Applied Sciences and Arts, Hannover)
  * Faculty IV, Dept. of Computer Science
  * Ricklinger Stadtweg 118, 30459 Hannover, Germany
  * 
  * Email: trust@f4-i.fh-hannover.de
- * Website: http://trust.inform.fh-hannover.de/
+ * Website: http://trust.f4.hs-hannover.de/
  * 
- * This file is part of IfmapJ-examples, version 0.1.5, implemented by the Trust@FHH 
- * research group at the Fachhochschule Hannover.
+ * This file is part of IfmapJ-examples, version 1.0.0, implemented by the
+ * Trust@HsH research group at the Hochschule Hannover.
  * %%
- * Copyright (C) 2010 - 2013 Trust@FHH
+ * Copyright (C) 2010 - 2013 Trust@HsH
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,35 +36,38 @@ package de.fhhannover.inform.trust.ifmapj_examples;
  * limitations under the License.
  * #L%
  */
+package de.hshannover.f4.trust.ifmapj_examples;
+
+
 
 import java.util.List;
 import java.util.concurrent.Semaphore;
 
 import org.w3c.dom.Document;
 
-import de.fhhannover.inform.trust.ifmapj.IfmapJ;
-import de.fhhannover.inform.trust.ifmapj.IfmapJHelper;
-import de.fhhannover.inform.trust.ifmapj.binding.IfmapStrings;
-import de.fhhannover.inform.trust.ifmapj.channel.ARC;
-import de.fhhannover.inform.trust.ifmapj.channel.SSRC;
-import de.fhhannover.inform.trust.ifmapj.exception.IfmapErrorResult;
-import de.fhhannover.inform.trust.ifmapj.exception.IfmapException;
-import de.fhhannover.inform.trust.ifmapj.exception.InitializationException;
-import de.fhhannover.inform.trust.ifmapj.identifier.AccessRequest;
-import de.fhhannover.inform.trust.ifmapj.identifier.Identifiers;
-import de.fhhannover.inform.trust.ifmapj.identifier.Identity;
-import de.fhhannover.inform.trust.ifmapj.identifier.IdentityType;
-import de.fhhannover.inform.trust.ifmapj.identifier.IpAddress;
-import de.fhhannover.inform.trust.ifmapj.messages.PollResult;
-import de.fhhannover.inform.trust.ifmapj.messages.PublishNotify;
-import de.fhhannover.inform.trust.ifmapj.messages.Requests;
-import de.fhhannover.inform.trust.ifmapj.messages.SearchResult;
-import de.fhhannover.inform.trust.ifmapj.messages.SearchResult.Type;
-import de.fhhannover.inform.trust.ifmapj.messages.SubscribeRequest;
-import de.fhhannover.inform.trust.ifmapj.messages.SubscribeUpdate;
-import de.fhhannover.inform.trust.ifmapj.metadata.EventType;
-import de.fhhannover.inform.trust.ifmapj.metadata.Significance;
-import de.fhhannover.inform.trust.ifmapj.metadata.StandardIfmapMetadataFactory;
+import de.hshannover.f4.trust.ifmapj.IfmapJ;
+import de.hshannover.f4.trust.ifmapj.IfmapJHelper;
+import de.hshannover.f4.trust.ifmapj.binding.IfmapStrings;
+import de.hshannover.f4.trust.ifmapj.channel.ARC;
+import de.hshannover.f4.trust.ifmapj.channel.SSRC;
+import de.hshannover.f4.trust.ifmapj.exception.IfmapErrorResult;
+import de.hshannover.f4.trust.ifmapj.exception.IfmapException;
+import de.hshannover.f4.trust.ifmapj.exception.InitializationException;
+import de.hshannover.f4.trust.ifmapj.identifier.AccessRequest;
+import de.hshannover.f4.trust.ifmapj.identifier.Identifiers;
+import de.hshannover.f4.trust.ifmapj.identifier.Identity;
+import de.hshannover.f4.trust.ifmapj.identifier.IdentityType;
+import de.hshannover.f4.trust.ifmapj.identifier.IpAddress;
+import de.hshannover.f4.trust.ifmapj.messages.PollResult;
+import de.hshannover.f4.trust.ifmapj.messages.PublishNotify;
+import de.hshannover.f4.trust.ifmapj.messages.Requests;
+import de.hshannover.f4.trust.ifmapj.messages.SearchResult;
+import de.hshannover.f4.trust.ifmapj.messages.SearchResult.Type;
+import de.hshannover.f4.trust.ifmapj.messages.SubscribeRequest;
+import de.hshannover.f4.trust.ifmapj.messages.SubscribeUpdate;
+import de.hshannover.f4.trust.ifmapj.metadata.EventType;
+import de.hshannover.f4.trust.ifmapj.metadata.Significance;
+import de.hshannover.f4.trust.ifmapj.metadata.StandardIfmapMetadataFactory;
 
 
 /**

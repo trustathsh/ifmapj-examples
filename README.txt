@@ -4,8 +4,8 @@ ifmapj-examples
 This package contains simple examples that demonstrate how to use the ifmapj
 IF-MAP 2.0 [1] library.
 
-Development was done by Fachhochschule Hannover (Hannover University of Applied
-Sciences and Arts) [2] within the ESUKOM research project [3].
+Development was done by Hochschule Hannover (University of Applied Sciences
+and Arts) [2] within the ESUKOM research project [3].
 
 
 Documentation
@@ -40,7 +40,7 @@ URLs
 ====
 [1] http://www.trustedcomputinggroup.org/files/static_page_files/1528BAC2-1A4B-B294-D02E5F053A3CF6C9/TNC_IFMAP_v2_0r36.pdf
 
-[2] http://trust.inform.fh-hannover.de
+[2] http://trust.f4.hs-hannover.de
 
 [3] http://www.esukom.de
 
