@@ -43,9 +43,9 @@ package de.hshannover.f4.trust.ifmapj_examples;
 
 
 import de.hshannover.f4.trust.ifmapj.IfmapJ;
-import de.hshannover.f4.trust.ifmapj.IfmapJHelper;
 import de.hshannover.f4.trust.ifmapj.binding.IfmapStrings;
 import de.hshannover.f4.trust.ifmapj.channel.SSRC;
+import de.hshannover.f4.trust.ifmapj.config.BasicAuthConfig;
 import de.hshannover.f4.trust.ifmapj.exception.IfmapErrorResult;
 import de.hshannover.f4.trust.ifmapj.exception.IfmapException;
 import de.hshannover.f4.trust.ifmapj.exception.InitializationException;
@@ -53,7 +53,11 @@ import de.hshannover.f4.trust.ifmapj.exception.MarshalException;
 import de.hshannover.f4.trust.ifmapj.identifier.Device;
 import de.hshannover.f4.trust.ifmapj.identifier.Identifier;
 import de.hshannover.f4.trust.ifmapj.identifier.Identifiers;
-import de.hshannover.f4.trust.ifmapj.messages.*;
+import de.hshannover.f4.trust.ifmapj.messages.MetadataLifetime;
+import de.hshannover.f4.trust.ifmapj.messages.PublishDelete;
+import de.hshannover.f4.trust.ifmapj.messages.PublishRequest;
+import de.hshannover.f4.trust.ifmapj.messages.PublishUpdate;
+import de.hshannover.f4.trust.ifmapj.messages.Requests;
 import de.hshannover.f4.trust.ifmapj.metadata.StandardIfmapMetadataFactory;
 
 /**
@@ -69,14 +73,12 @@ public class ExtendedIdentityExample {
 		Device dev = Identifiers.createDev("device01");
 
 		// Use basic authentication.
-		SSRC ssrc = IfmapJ.createSSRC(
+		SSRC ssrc = IfmapJ.createSsrc(new BasicAuthConfig(
 						Config.BASIC_AUTH_SERVER_URL,
 						Config.BASIC_AUTH_USER,
 						Config.BASIC_AUTH_PASSWORD,
-						IfmapJHelper.getTrustManagers(
-									getClass().getResourceAsStream(
-											Config.TRUST_STORE_PATH),
-											Config.TRUST_STORE_PASSWORD));
+						Config.TRUST_STORE_PATH,
+						Config.TRUST_STORE_PASSWORD));
 		
 		// To create simple requests, we need some factories.
 		StandardIfmapMetadataFactory mF = IfmapJ.createStandardMetadataFactory();

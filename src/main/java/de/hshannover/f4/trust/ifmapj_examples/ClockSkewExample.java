@@ -41,17 +41,17 @@ package de.hshannover.f4.trust.ifmapj_examples;
 
 
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 import de.hshannover.f4.trust.ifmapj.IfmapJ;
-import de.hshannover.f4.trust.ifmapj.IfmapJHelper;
 import de.hshannover.f4.trust.ifmapj.channel.SSRC;
+import de.hshannover.f4.trust.ifmapj.config.BasicAuthConfig;
 import de.hshannover.f4.trust.ifmapj.exception.IfmapErrorResult;
 import de.hshannover.f4.trust.ifmapj.exception.IfmapException;
 import de.hshannover.f4.trust.ifmapj.exception.InitializationException;
 import de.hshannover.f4.trust.ifmapj.identifier.Identifiers;
 import de.hshannover.f4.trust.ifmapj21.ClockSkewDetector;
-
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 
 /**
  * This example shows how the clock skew detection can be used by clients
@@ -78,13 +78,12 @@ public class ClockSkewExample {
 		 * for automated time synchronization on newSession() and
 		 * renewSession() calls.
 		 */
-		ssrc = IfmapJ.createSSRC(
-							Config.BASIC_AUTH_SERVER_URL,
-							Config.BASIC_AUTH_USER,
-							Config.BASIC_AUTH_PASSWORD,
-							IfmapJHelper.getTrustManagers(getClass().getResourceAsStream(
-											Config.TRUST_STORE_PATH),
-											Config.TRUST_STORE_PASSWORD));
+		ssrc = IfmapJ.createSsrc(new BasicAuthConfig(
+				Config.BASIC_AUTH_SERVER_URL,
+				Config.BASIC_AUTH_USER,
+				Config.BASIC_AUTH_PASSWORD,
+				Config.TRUST_STORE_PATH,
+				Config.TRUST_STORE_PASSWORD));
 		
 		try {
 			// create new example session 
@@ -146,13 +145,12 @@ public class ClockSkewExample {
 			 * Use the createSSRC() function without a device identifier
 			 * for manual time synchronization and backward compatibility.
 			 */
-			ssrc = IfmapJ.createSSRC(
-								Config.BASIC_AUTH_SERVER_URL,
-								Config.BASIC_AUTH_USER,
-								Config.BASIC_AUTH_PASSWORD,
-								IfmapJHelper.getTrustManagers(getClass().getResourceAsStream(
-												Config.TRUST_STORE_PATH),
-												Config.TRUST_STORE_PASSWORD));
+			ssrc = IfmapJ.createSsrc(new BasicAuthConfig(
+					Config.BASIC_AUTH_SERVER_URL,
+					Config.BASIC_AUTH_USER,
+					Config.BASIC_AUTH_PASSWORD,
+					Config.TRUST_STORE_PATH,
+					Config.TRUST_STORE_PASSWORD));
 		
 
 			// create another new example session 

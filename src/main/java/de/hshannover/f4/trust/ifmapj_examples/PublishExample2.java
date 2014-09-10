@@ -42,9 +42,9 @@ package de.hshannover.f4.trust.ifmapj_examples;
 
 
 import de.hshannover.f4.trust.ifmapj.IfmapJ;
-import de.hshannover.f4.trust.ifmapj.IfmapJHelper;
 import de.hshannover.f4.trust.ifmapj.binding.IfmapStrings;
 import de.hshannover.f4.trust.ifmapj.channel.SSRC;
+import de.hshannover.f4.trust.ifmapj.config.BasicAuthConfig;
 import de.hshannover.f4.trust.ifmapj.exception.IfmapErrorResult;
 import de.hshannover.f4.trust.ifmapj.exception.IfmapException;
 import de.hshannover.f4.trust.ifmapj.exception.InitializationException;
@@ -76,13 +76,12 @@ public class PublishExample2 {
 
 		System.out.println("====== RUNNING PUBLISH EXAMPLE 2 ======");
 		
-		SSRC ssrc = IfmapJ.createSSRC(
+		SSRC ssrc = IfmapJ.createSsrc(new BasicAuthConfig(
 				Config.BASIC_AUTH_SERVER_URL,
 				Config.BASIC_AUTH_USER,
 				Config.BASIC_AUTH_PASSWORD,
-				IfmapJHelper.getTrustManagers(getClass().getResourceAsStream(
-						Config.TRUST_STORE_PATH),
-						Config.TRUST_STORE_PASSWORD));
+				Config.TRUST_STORE_PATH,
+				Config.TRUST_STORE_PASSWORD));
 		
 		try {
 		
